@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
 
-specVersion: "3.1"
+specVersion: "2.6"
 metadata:
   name: demo.workflowuimodule
 type: application
@@ -15,9 +15,13 @@ server:
             - /resources
             - /test-resources
           url: https://ui5.sap.com
-        backend:
-          - path: /sap
-            url: http://localhost
+        backend:    
+          - path: /bpmworkflowruntime
+            pathPrefix: /public/workflow/rest
+            url: https://spa-api-gateway-bpi-us-prod.cfapps.us10.hana.ondemand.com
+            destination: workflowruntime
+          # - path: /sap
+          #   url: http://localhost
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
